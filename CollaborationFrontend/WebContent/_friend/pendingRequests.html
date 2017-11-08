@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+<table class="table table-stripped">
+<tr ng-repeat="p in pendingLists">
+<td>
+{{p.from}}
+</td>
+<td> <a href="" ng-click="updatependingrequest(p.from,'A')"  class="btn btn-xs btn-default">Accept</a>
+</td>
+<td> <a href="" ng-click="updatependingrequest(p.from,'D')"  class="btn btn-xs btn-default">Deny</a>
+</td>
+</tr>
+</table>
+</div> 
+</body>
+</html>

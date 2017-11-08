@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<meta charset="ISO-8859-1" >
+<meta http-equiv="Content-Type"  content="text/html; charset=ISO-8859-1" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+	rel="stylesheet" />
+	  <style>
+  .affix {
+      top: 0;
+      width: 100%;
+  }
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }
+ 
+ /*  div.relative{
+    position: relative;
+   top:10px;
+   
+    
+    }  */
+    </style>
+    <style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
+</style>
+</head>
+<body ng-app="app">
+<header>
+<div class="relative">
+            <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+  <ul class="nav navbar-nav">
+                    <a class="navbar-brand" href="/">NIIT</a>
+               <ul class="nav navbar-nav">
+               <div class="dropdown">
+  <button class="dropbtn"  ng-show="currentUser.username">JOB</button>
+  <div class="dropdown-content">
+    <a href="#addJob" ng-show="currentUser.role=='admin' || currentUser.role== 'Employee'">Post new job</a>
+    <a href="#getAllJobs" ng-show="currentUser.username">view jobs</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="dropbtn"  ng-show="currentUser.username">BLOG</button>
+  <div class="dropdown-content">
+    <a href="#addPost" ng-show="currentUser.username">add new blog</a>
+    <a href="#getAllBlogs" ng-show="currentUser.username">view blog</a>
+    <a href="#BlogForApproval" ng-show="currentUser.role=='admin' || currentUser.role== 'Employee'">blogs for approval</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="dropbtn"  ng-show="currentUser.username">FRIEND</button>
+  <div class="dropdown-content">
+    <a href="#/getAllUsers" ng-show="currentUser.username">view all users</a>
+    <a href="#pendingRequests" ng-show="currentUser.username">Pending Requests</a>
+    <a href="#listoffriends" ng-show="currentUser.username">Friends list</a>
+  </div>
+</div>
+                    <li><a href="#home" ng-show="currentUser.username"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#aboutus"><i class="fa fa-shield"></i> About Us</a></li>
+                    <li><a href="#login"  ng-hide="currentUser.username"> <span class="glyphicon glyphicon-user"></span>Sign in OR Sign up</a></li>                  
+                    <li><a href="#profilepic" ng-show="currentUser.username"><img src="http://localhost:9191/BackendProject/getimage/{{currentUser.username}}" alt="upload Picture" width="30px" height="30px" class="img-rounded"></a></li>
+                    <li><a href="#edituser"  ng-show="currentUser.username"><span class="glyphicon glyphicon-user">Edit Profile</span></a></li>
+                        <li><a href="#chat" ng-show="currentUser.username">Chat </a></li>
+                              <li><a href="" ng-click="logout()" ng-show="currentUser.username">logout</a></li>
+                                <li><a href="" ng-show="currentUser.username">Welcome {{currentUser.username}}</a>
+                </ul>
+            </ul>
+            </nav>
+              </div>
+        </header>
+       <div ng-view></div>
+</body>
+<!-- Angular JS module -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+<!--  Angular JS ngRoute -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
+<!-- BootStrap -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="_user/usercontroller.js"></script>
+<script type="text/javascript" src="_user/userservice.js"></script>
+<script type="text/javascript" src="_user/editcontroller.js"></script>
+<script type="text/javascript" src="_job/jobcontroller.js"></script>
+<script type="text/javascript" src="_job/jobservice.js"></script>
+<script type="text/javascript" src="_blog/blogcontroller.js"></script>
+<script type="text/javascript" src="_blog/blogservice.js"></script>
+<script type="text/javascript" src="_blog/controllerblogdetails.js"></script>
+<script type="text/javascript" src="_friend/friendcontroller.js"></script>
+<script type="text/javascript" src="_friend/friendservice.js"></script>
+<script src="js/sockjs/sockjs.js"></script>
+<script src="js/stomp/dist/stomp.js"></script>
+<script type="text/javascript" src="_chat/chatCtrl.js"></script>
+<script type="text/javascript" src="_chat/chatservice.js"></script>
+</html>

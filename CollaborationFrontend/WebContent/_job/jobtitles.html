@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+tr:hover {background-color: #f5f5f5}
+tr:nth-child(even){background-color: #f2f2f2}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div><center><h2>List of jobs </h2></center></div>
+	<table>
+<tr><th><center>List Of Job Titles<center></center></th></tr>
+	<tr ng-repeat="job in jobs">
+
+	<td ng-if="currentUser.role=='Student' || currentUser.role=='Employee' || currentUser.role=='Alumini' "><a href="" ng-click=jobDetail(job.id)>{{job.jobTitle}}</a></td>
+
+	<td ng-if="currentUser.role=='admin'"><a href="" ng-click=jobDetail(job.id)>{{job.jobTitle}}</td>
+	</tr>
+	</table>
+	</div>
+	<div class="container">
+<div><center><h2>Description Of Jobs </h2></center></div>
+<table>
+	<div ng-show="showJobDetails">
+	<tr><th>Description</th><th>Skills Required</th><th>Location</th><th>Years Of Experience</th><th>Company</th><th>Posted On</th><th>Active</th></tr>
+	<td>{{job.jobDescription}}</td>
+	<td>{{job.skillsRequired}}</td>
+	<td>{{job.location}}</td>
+	<td>{{job.yrsOfExp}}</td>
+	<td>{{job.company}}</td>
+	<td>{{job.postedOn | date:'yyyy:MM:dd'}}</td>
+	<td ng-if="job.active">YES</td>
+	<td ng-if="!job.active">NO</td>
+</div>
+</table>
+</div>
+	</body>
+</html>

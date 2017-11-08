@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+tr:hover {background-color: #f5f5f5}
+tr:nth-child(even){background-color: #f2f2f2}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+
+<div class="container">
+<div><center><h2>List of Blog Posts </h2></center></div>
+<table>
+<tr><th>blog title</th><th>created by</th><th>created on|date</th></tr>
+<tr ng-repeat="blogPost in blogPosts | orderBy:'time':true">
+
+<td><a href="#getBlogDetail/{{blogPost.id}}">{{blogPost.title}}</a></td>
+<td>Created By: {{blogPost.createdBy.username}}</td>
+<td>Created On: {{blogPost.createdOn | date:'MM/dd/yyyy HH:mm'}}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
